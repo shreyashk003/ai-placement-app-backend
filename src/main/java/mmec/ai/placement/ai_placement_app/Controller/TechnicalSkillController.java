@@ -21,11 +21,11 @@ public class TechnicalSkillController {
     @GetMapping("/getTechSubQuestionsByName/{sub_name}")
     List<Technical_Subject_Skill> getTechnicalSkillByname(@PathVariable String sub_name) {
         System.out.println(sub_name);
-        return technicalSkillService.getTechnicalSkillByname(sub_name);
+        return technicalSkillService.getRandomTechnicalSkillByName( sub_name, AllConstants.TECH_RANDOM_QUESTION_COUNT);
     }
 
 
-    @PostMapping("/insertTechnicalSkillQuestion")
+    @PostMapping("/insertTechnicalQuestion")
     String insertTechnicalSkill(@RequestBody Technical_Subject_Skill t){
         technicalSkillService.saveTechnicalSkill(t);
         return "Technical Skill inserted";

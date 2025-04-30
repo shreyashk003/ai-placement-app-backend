@@ -18,7 +18,7 @@ public class ProgramSkillController {
 
     @GetMapping("/getAllProgramQuestions")
     List<ProgramSkill> getProgramSkill(){
-    return programSkillService.getProgramSkill();
+    return programSkillService.getRandomProgramSkills(AllConstants.PROG_RANDOM_QUESTION_COUNT);
     }
 
     @PostMapping("/insertProgramProblemStatement")

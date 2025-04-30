@@ -13,11 +13,13 @@ import static org.apache.coyote.http11.Constants.a;
 @RequestMapping("/api")
 @CrossOrigin()
 public class AptitudeController {
+
+
     @Autowired
     AptitudeService aptitudeService;
     @GetMapping("/getAllAptitudeQuestions")
     List<Aptitude> getAptitude(){
-        return aptitudeService.getAptitude();
+        return aptitudeService.getRandomAptitudeQuestions(AllConstants.APTI_RANDOM_QUESTION_COUNT);
     }
 
     @PostMapping("/insertAptitude")

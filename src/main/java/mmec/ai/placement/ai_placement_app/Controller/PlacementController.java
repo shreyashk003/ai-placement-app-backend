@@ -55,6 +55,8 @@ public class PlacementController {
 
             Process process = processBuilder.start();
 
+            System.out.println("hello");
+
             // Read the output from the process
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
                 String line;

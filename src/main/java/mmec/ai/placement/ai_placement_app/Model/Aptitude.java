@@ -22,4 +22,5 @@ public class Aptitude {
     String option_4;
     Integer correct_ans_no;
     String category;
+    String difficulty;
 }

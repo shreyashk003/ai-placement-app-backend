@@ -6,7 +6,9 @@ import mmec.ai.placement.ai_placement_app.Repository.TechnicalSkillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class TechnicalSkillService {
@@ -25,4 +27,18 @@ public class TechnicalSkillService {
     public List<Technical_Subject_Skill> getTechnicalSkillByname(String subName) {
         return technicalSkillRepository.getByName(subName);
     }
+
+    public List<Technical_Subject_Skill> getRandomTechnicalSkillByName(String subName, int count) {
+        List<Technical_Subject_Skill> filteredQuestions = technicalSkillRepository.getByName(subName);
+
+        // Shuffle the filtered list
+        Collections.shuffle(filteredQuestions);
+
+        // Return only 'count' random, unique questions
+        return filteredQuestions.stream()
+                .limit(count)
+                .collect(Collectors.toList());
+    }
+
+
 }

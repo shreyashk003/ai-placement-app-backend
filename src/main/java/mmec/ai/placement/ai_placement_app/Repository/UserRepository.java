@@ -12,7 +12,7 @@ import java.util.List;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    @Query(value = "select username,password, role, u.usnorfid,stdname, sem, branch from user u,student s where username=:username and password=:password and u.usnorfid=s.usn",nativeQuery = true)
+    @Query(value = "select username,password, role, u.usnorfid,stdname, sem, branch,SSLCScore,PUCScore,BE1Score,BE2Score,BE3Score from user u,student s where username=:username and password=:password and u.usnorfid=s.usn",nativeQuery = true)
     List<UserStudent> getByusernamepassword(String username, String password);
 
     @Query(value = "select username,password, role, u.usnorfid,name from user u,faculty f where username=:username and password=:password and u.usnorfid=f.fid",nativeQuery = true)

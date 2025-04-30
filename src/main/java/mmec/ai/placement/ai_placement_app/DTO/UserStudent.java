@@ -16,5 +16,10 @@ public class UserStudent {
     String stdname;
     Integer sem;
     String branch;
+    Float SSLCScore;
+    Float PUCScore;
+    Float BE1Score;
+    Float BE2Score;
+    Float BE3Score;
 }
 

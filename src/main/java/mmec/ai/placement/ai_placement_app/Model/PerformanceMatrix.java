@@ -21,5 +21,5 @@ public class PerformanceMatrix {
     Integer score;
     Integer attempt_no;
     Date quiz_date;
-    Float timetaken;
+    String timetaken;
 }
