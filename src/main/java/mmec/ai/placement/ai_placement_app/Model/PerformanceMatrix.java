@@ -22,4 +22,6 @@ public class PerformanceMatrix {
     Integer attempt_no;
     Date quiz_date;
     String timetaken;
+
+    String category;
 }

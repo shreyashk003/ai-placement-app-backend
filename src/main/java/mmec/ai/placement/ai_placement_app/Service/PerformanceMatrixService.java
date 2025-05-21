@@ -1,5 +1,6 @@
 package mmec.ai.placement.ai_placement_app.Service;
 
+import jakarta.transaction.Transactional;
 import mmec.ai.placement.ai_placement_app.DTO.StudentScores;
 import mmec.ai.placement.ai_placement_app.DTO.UsnSubcode;
 import mmec.ai.placement.ai_placement_app.Model.PerformanceMatrix;
@@ -13,9 +14,21 @@ import java.util.List;
 public class PerformanceMatrixService {
     @Autowired
     PerformanceMatrixRepository performanceMatrixRepository;
-
+    @Transactional
     public void setAptiscore(PerformanceMatrix performanceMatrix){
          performanceMatrixRepository.save(performanceMatrix);
+         String columnType="";
+         switch (performanceMatrix.getCategory()){
+            case  "Distance and Speed" : performanceMatrixRepository.incrementCat1(performanceMatrix.getAttempt_no(),performanceMatrix.getUsn(),performanceMatrix.getSub_name()); break;
+            case  "Work and Time" : performanceMatrixRepository.incrementCat2(performanceMatrix.getAttempt_no(),performanceMatrix.getUsn(),performanceMatrix.getSub_name()); break;
+            case  "Percentage" : performanceMatrixRepository.incrementCat3(performanceMatrix.getAttempt_no(),performanceMatrix.getUsn(),performanceMatrix.getSub_name()); break;
+            case  "Number series" : performanceMatrixRepository.incrementCat4(performanceMatrix.getAttempt_no(),performanceMatrix.getUsn(),performanceMatrix.getSub_name()); break;
+            case  "Quantitative Aptitude" : performanceMatrixRepository.incrementCat5(performanceMatrix.getAttempt_no(),performanceMatrix.getUsn(),performanceMatrix.getSub_name()); break;
+            case  "Logical Reasoning" : performanceMatrixRepository.incrementCat6(performanceMatrix.getAttempt_no(),performanceMatrix.getUsn(),performanceMatrix.getSub_name()); break;
+             case  "Verbal Ability" : performanceMatrixRepository.incrementCat7(performanceMatrix.getAttempt_no(),performanceMatrix.getUsn(),performanceMatrix.getSub_name()); break;
+
+         }
+
     }
 
     public List<StudentScores> getAptiscoreByUsn(String stdusn){

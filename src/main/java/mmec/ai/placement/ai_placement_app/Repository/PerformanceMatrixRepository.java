@@ -3,7 +3,9 @@ package mmec.ai.placement.ai_placement_app.Repository;
 import mmec.ai.placement.ai_placement_app.DTO.StudentScores;
 import mmec.ai.placement.ai_placement_app.Model.PerformanceMatrix;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -31,6 +33,38 @@ public interface PerformanceMatrixRepository extends JpaRepository<PerformanceMa
 
     @Query(value ="select usn,sub_name,attempt_no,score,quiz_date,timetaken from performancematrix where usn=:usn and sub_name=:scode",nativeQuery = true)
     public List<StudentScores> getTechAttemptByUsn(String  usn,String scode);
+
+
+    @Modifying
+
+    @Query(value = "UPDATE performancematrix SET Cat_1 = Cat_1 + 1 WHERE attempt_no = :attemptNo AND usn = :usn AND sub_name = :subName", nativeQuery = true)
+    void incrementCat1(@Param("attemptNo") int attemptNo, @Param("usn") String usn, @Param("subName") String subName);
+
+    @Modifying
+    @Query(value = "UPDATE performancematrix SET Cat_2 = Cat_2 + 1 WHERE attempt_no = :attemptNo AND usn = :usn AND sub_name = :subName", nativeQuery = true)
+    void incrementCat2(@Param("attemptNo") int attemptNo, @Param("usn") String usn, @Param("subName") String subName);
+
+    @Modifying
+    @Query(value = "UPDATE performancematrix SET Cat_3 = Cat_3 + 1 WHERE attempt_no = :attemptNo AND usn = :usn AND sub_name = :subName", nativeQuery = true)
+    void incrementCat3(@Param("attemptNo") int attemptNo, @Param("usn") String usn, @Param("subName") String subName);
+
+    @Modifying
+    @Query(value = "UPDATE performancematrix SET Cat_4 = Cat_4 + 1 WHERE attempt_no = :attemptNo AND usn = :usn AND sub_name = :subName", nativeQuery = true)
+    void incrementCat4(@Param("attemptNo") int attemptNo, @Param("usn") String usn, @Param("subName") String subName);
+
+    @Modifying
+    @Query(value = "UPDATE performancematrix SET Cat_5 = Cat_5 + 1 WHERE attempt_no = :attemptNo AND usn = :usn AND sub_name = :subName", nativeQuery = true)
+    void incrementCat5(@Param("attemptNo") int attemptNo, @Param("usn") String usn, @Param("subName") String subName);
+
+    @Modifying
+    @Query(value = "UPDATE performancematrix SET Cat_6 = Cat_6 + 1 WHERE attempt_no = :attemptNo AND usn = :usn AND sub_name = :subName", nativeQuery = true)
+    void incrementCat6(@Param("attemptNo") int attemptNo, @Param("usn") String usn, @Param("subName") String subName);
+
+
+    @Modifying
+    @Query(value = "UPDATE performancematrix SET Cat_7 = Cat_7 + 1 WHERE attempt_no = :attemptNo AND usn = :usn AND sub_name = :subName", nativeQuery = true)
+    void incrementCat7(@Param("attemptNo") int attemptNo, @Param("usn") String usn, @Param("subName") String subName);
+
 }
 
 

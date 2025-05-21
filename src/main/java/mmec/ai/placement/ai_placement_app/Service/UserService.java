@@ -19,6 +19,8 @@ public class UserService {
     }
 
     public List<UserStudent> getByUP(String u, String p){
+
+        System.out.println(userRepository.getByusernamepassword(u,p));
         return userRepository.getByusernamepassword(u,p);
     }
     public List<UserFaculty> getByUP1(String u, String p){
