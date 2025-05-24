@@ -16,4 +16,11 @@ public class StudentScores {
     Integer score;
     Date quiz_date;
     String timetaken;
+    Integer Cat_1;
+    Integer Cat_2;
+    Integer Cat_3;
+    Integer Cat_4;
+    Integer Cat_5;
+    Integer Cat_6;
+    Integer Cat_7;
 }
